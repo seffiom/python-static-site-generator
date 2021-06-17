@@ -1,17 +1,16 @@
 from typing import List
 from pathlib import Path
-from shutil import copy2
+import shutil 
 
 class Parser:
     
-    extensions = List[str] = []
+    extensions: List[str] = []
     
     def valid_extension(self,extension):
-        if extension in self.extensions():
-            return extension
+        return extension in self.extensions
     
     def parse(self, path: Path, source: Path, dest: Path):
-        raise NotImplementedError()
+        raise NotImplementedError
         
     def read(self,path):
       with open(path,'r') as file:
@@ -23,7 +22,7 @@ class Parser:
             file.write(content)
     
     def copy(self,path,source,dest):
-        copy2(path,dest/path.relative_to(source))
+        shutil.copy2(path,dest/path.relative_to(source))
         
 
 class ResourceParser(Parser):
