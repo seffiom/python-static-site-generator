@@ -28,15 +28,10 @@ class Site:
         self.dest.mkdir(parents=True, exist_ok=True)
         for path in self.source.rglob("*"):
             if path.is_dir():
-<<<<<<< HEAD
-               self.create_dir(path)
-            elif path.is_file():
-               self.run_parser(path)
-              
-=======
                 self.create_dir(path)
-                   
->>>>>>> 32488ecfb5e8d17d6a67b34008898e500e035838
+            elif path.is_file():
+                self.run_parser(path)
+
            
                 
         
